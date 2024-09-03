@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container d-flex">
+      <div class="row d-flex ">
+        <div class="col-md-3 d-none d-md-block" id="sidebarLeft">
+          <nav id="sidebar" class="bg-dark">
+            <div class="sidebar-header text-center text-white ">
+              <h4>spotify</h4>
+            </div>
+          </nav>
+        </div>
+        <div class="col-12 " id="home">
+          <div class="container">
+            <div class="row" id="cards-container"></div>
+          </div>
+
+
+          <template id="card-template">
+            <div class="col-4 card">
+              <img class="card-img-top" src="" alt="" />
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </template>
+        </div>
+        <div class="col-md-3 d-none d-md-block" id="sidebarRight">
+          <nav id="sidebar2" class="bg-dark">
+            <div class="sidebar-header text-center text-white py-4">
+              <h4>spotify</h4>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="navbar bg-black fixed-bottom"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
