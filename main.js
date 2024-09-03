@@ -1,4 +1,3 @@
-uros milenkovic 03/09/2024 19:33 • 
 const container = document.getElementById("cards-container");
 const template = document.getElementById("card-template").content;
 
