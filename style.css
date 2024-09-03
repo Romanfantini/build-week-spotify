@@ -1,0 +1,32 @@
+uros milenkovic 03/09/2024 19:34 • 
+#sidebar {
+width: 300px;
+position: fixed;
+top: 0;
+left: 0;
+height: 100vh;
+z-index: 1000;
+padding-top: 20px;
+transition: all 0.3s;
+background-color: #343a40;
+}
+
+
+#sidebar2 {
+width: 200px;
+position: fixed;
+top: 0;
+right: 0;
+height: 100vh;
+z-index: 1000;
+padding-top: 20px;
+transition: all 0.3s;
+background-color: #343a40;
+}
+
+
+footer {
+height: 100px;
+}
+
+
