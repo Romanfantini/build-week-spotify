@@ -1,4 +1,15 @@
 img {
-    width: 200px;
-    height: 200px;
+ width: 50px;
 }   
+
+.cardImgTop {
+    width: 150px;
+}
+#sidebarLeft {
+    border-right: solid 2px white;
+    background: black;
+}
+#sidebarRight {
+    border-left: solid 2px white;
+    background: black;
+}

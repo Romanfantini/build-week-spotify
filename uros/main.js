@@ -1,4 +1,4 @@
-const container = document.getElementById("cards-container");
+/*const container = document.getElementById("cards-container");
 const template = document.getElementById("card-template").content;
 
 
@@ -43,4 +43,8 @@ container.appendChild(clone);
 console.error("Fetch error:", error);
 }
 }
-getAllData(); 
+getAllData(); */
+
+
+let URL = 'https://striveschool-api.herokuapp.com/api/deezer/search?q=?'
+
