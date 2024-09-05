@@ -9,18 +9,17 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="homepage.css" />
   <title>Document</title>
 </head>
 <body>
   <div class="container-fluid">
     <div class="row">
-      <!--questa è la sidebar di sinistra che compare solo da display md in su +-->
-      <div class="col-md-3 d-none d-md-block" id="sidebarLeft">
+      <!-- Sidebar sinistra -->
+      <div class="col-md-3 d-none d-md-block" id="sidebarLeft"></div>
 
-      </div>
-
-      <!--Questa è la home page da smartphone-->
+      <!-- Home page -->
       <div class="col-12 col-md-6 bg-black">
         <div class="row text-white">
           <div class="d-flex justify-content-between">
@@ -38,50 +37,86 @@
             <span>Podcast e show</span>
           </div>
         </div>
-        <div class="row ">
-          <div class="col-12 container-fluid d-flex flex-wrap g-3 m-3">
-            <div class="playlist  m-2 rounded-start-1  d-flex text-white text-center bg-secondary  ">
-              <img src="https://picsum.photos/200/300" alt="" class="img-fluid rounded-start-1 ">
-              <p>I miei brani</p>
-            </div>
-            <div class="playlist m-2 rounded-start-1  d-flex text-white text-center bg-secondary">  <img src="https://picsum.photos/200/300" alt="" class="img-fluid rounded-start-1">
-              <p>I miei brani</p>
-            </div>
-            <div class="playlist m-2 rounded-start-1  d-flex text-white text-center bg-secondary">  <img src="https://picsum.photos/200/300" alt="" class="img-fluid rounded-start-1">
-              <p>I miei brani</p>
-            </div>
-            <div class="playlist m-2 rounded-start-1  d-flex text-white text-center bg-secondary">  <img src="https://picsum.photos/200/300" alt="" class="img-fluid rounded-start-1">
-              <p>I miei brani</p>
-            </div>
-            <div class="playlist  m-2 rounded-start-1  d-flex text-white text-center bg-secondary  ">
-              <img src="https://picsum.photos/200/300" alt="" class="img-fluid rounded-start-1 ">
-              <p>I miei brani</p>
-            </div>
-            <div class="playlist  m-2 rounded-start-1  d-flex text-white text-center bg-secondary  ">
-              <img src="https://picsum.photos/200/300" alt="" class="img-fluid rounded-start-1 ">
-              <p>I miei brani</p>
-            </div>
-          </div>
+
+        <!-- Cards dinamiche -->
+        <div class="row" id="playlistCard">
+          <!-- Qui verranno generate le card -->
         </div>
-        <div class="row " id="playlistCard">
-<div class="col-sm-12 col-md-6 col-xl-4 d-flex">
-          <div id="cardContainer" class="d-flex ">
-            <img class="cardImgTop img-fluid " src="" alt="" >
-            <div class="cardBody">
-              <h4 class="cardTitle"></h4>
-              <p class="cardText"></p>
-            </div>
-          </div>
-</div>
-        </div>
-      </div>  
-      <!--Questa è la sidebar di destra -->
+      </div>
+
+      <!-- Sidebar destra -->
       <div class="col-md-3 d-none d-md-block" id="sidebarRight"></div>
     </div>
   </div>
 
-  
+  <!-- Template della card -->
+  <template id="cardTemplate">
+    <div class="col-12 col-md-6 col-xl-4 d-flex">
+      <div class="card bg-dark text-white">
+        <a class="cardLink" href="#">
+          <img class="cardImgTop img-fluid" src="" alt="Album cover">
+        </a>
+      </div>
+    </div>
+  </template>
+
+      <!--Player  -->
+      <div class="divPlayer bg-grayMain align-items-center p-3  position-fixed bottom-10 w-100 z-3 h-15">
+        <audio id="audio" crossorigin="anonymous">
+            <source src="https://cdn-preview-5.dzcdn.net/stream/c-56b90c84e99cca5b7e5c7f5059e4696f-2.mp3"
+                type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="row">
+            <div class="col-3 d-flex justify-content-st align-items-center text-start">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <div class="loading" id="loader"></div>
+                        <img id="imgPlayer" class="divImgPlayer d-none" src="assets/imgs/search/image-1.jpeg"
+                            alt="image player">
+                    </div>
+
+                    <div class="ms-2 d-none d-md-block">
+                        <h6 id="titlePlayer" class="m-0"></h6>
+                        <p id="artistPlayer" class="m-0"></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-center align-items-center z-10">
+                <div class="d-flex justify-content-center align-items-center mb-2">
+                    <i id="shuffleButton" class="bi bi-shuffle"></i>
+                    <i id="resetButton" class="material-symbols-outlined ms-3">
+                        skip_previous
+                    </i>
+                    <i id="play" class="bi bi-play-circle-fill ms-3 display-6"></i>
+                    <i id="nextTrack" class="material-symbols-outlined ms-3">
+                        skip_next
+                    </i>
+                    <i id="loopButton" class="bi bi-repeat ms-3"></i>
+                </div>
+                <div class="w-100 d-flex align-items-center">
+                    <p id="currentDuration" class="m-0 me-1">0:00</p>
+                    <input type="range" id="rangeAudio" class="slider w-90">
+                    <p id="maxDuration" class="m-0 ms-1">3:23</p>
+                </div>
+            </div>
+            <div class="col-3 d-flex justify-content-end align-items-center">
+                <i class="bi bi-mic-fill mx-1 d-none d-lg-inline-block"></i>
+                <i class="bi bi-menu-button-wide-fill mx-1 d-none d-lg-inline-block"></i>
+                <i class="bi bi-speaker mx-1 d-none d-lg-inline-block"></i>
+
+                <i class="bi bi-volume-down-fill mx-1 d-none d-md-block"></i>
+                <input type="range" id="volumeControl" class="slider d-none d-md-block" min="0" max="1" step="0.01"
+                    value="1">
+
+                <i class="bi bi-arrows-fullscreen mx-1 d-none d-lg-inline-block"></i>
+            </div>
+        </div>
+    </div>
+
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script src="homepage.js"></script>
 </body>
 </html>
+
