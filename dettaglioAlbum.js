@@ -38,8 +38,9 @@ function displayTracks(tracks) {
     }
 
     trackListContainer.innerHTML = '';
-
+    
     tracks.forEach((track, index) => {
+
         const trackElement = document.createElement('div');
         trackElement.className = 'track';
         trackElement.innerHTML = `

@@ -22,7 +22,7 @@ const getAllData = async () => {
       return shuffled.slice(0, numElements);
     }
 
-    let randomAlbums = getRandomElements(allTracks, 6);
+    let randomAlbums = getRandomElements(allTracks, 10);
 
     const cardTemplate = document.getElementById('cardTemplate');
     const playlistCard = document.getElementById('playlistCard');
@@ -43,4 +43,7 @@ const getAllData = async () => {
 };
 
 getAllData();
+
+
+
 
